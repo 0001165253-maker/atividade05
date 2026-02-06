@@ -13,8 +13,16 @@ return new class extends Migration
     {
         Schema::create('carros', function (Blueprint $table) {
             $table->id();
+            $table->string('modelo');
+            $table->string('placa')->unique();
+            $table->string('marca');
+            $table->integer('ano');
+            $table->decimal('preco_diaria', 8, 2);
+            $table->text('descricao')->nullable();
+            $table->enum('status', ['disponivel', 'alugado', 'manutencao'])->default('disponivel');
             $table->timestamps();
-        });
+    }   );
+
     }
 
     /**
