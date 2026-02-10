@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Carro extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'modelo',
+        'placa',
+        'marca',
+        'ano',
+        'preco_diaria',
+        'descricao',
+        'status'
+    ];
+
+    public function alugueis()
+    {
+        return $this->hasMany(Aluguel::class);
+    }
 }
+
