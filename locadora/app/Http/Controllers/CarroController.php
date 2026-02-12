@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Carro;
 
 class CarroController extends Controller
 {
@@ -11,7 +12,8 @@ class CarroController extends Controller
      */
     public function index()
     {
-        //
+        $carros = Carro::where('status', 'disponivel')->get();
+        return view('carros.index', compact('carros'));
     }
 
     /**
@@ -27,7 +29,8 @@ class CarroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Carro::create($request->all());
+        return redirect()->route('carros.index');
     }
 
     /**

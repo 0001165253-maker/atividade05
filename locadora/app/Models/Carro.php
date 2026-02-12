@@ -10,13 +10,7 @@ class Carro extends Model
     use HasFactory;
 
     protected $fillable = [
-        'modelo',
-        'placa',
-        'marca',
-        'ano',
-        'preco_diaria',
-        'descricao',
-        'status'
+    'modelo','marca','placa','ano','preco_diaria','descricao','status'
     ];
 
     public function alugueis()

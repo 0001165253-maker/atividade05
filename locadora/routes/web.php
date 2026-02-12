@@ -8,3 +8,9 @@ use App\Http\Controllers\AluguelController;
 Route::resource('clientes', ClienteController::class);
 Route::resource('carros', CarroController::class);
 Route::resource('alugueis', AluguelController::class);
+
+Route::get('/teste', function () {
+return 'rota teste funcionando';
+});
+
+

@@ -11,7 +11,8 @@ class AluguelController extends Controller
      */
     public function index()
     {
-        return view ('alugueis.index');
+        $alugueis = Aluguel::all();
+        return view('alugueis.index', compact('alugueis'));
     }
 
     /**
@@ -19,7 +20,10 @@ class AluguelController extends Controller
      */
     public function create()
     {
-        //
+        $clientes = Cliente::where('status','ativo')->get();
+        $carros = Carro::where('status','disponivel')->get();
+
+        return view('alugueis.create', compact('clientes','carros'));
     }
 
     /**
@@ -27,7 +31,14 @@ class AluguelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Aluguel::create($request->all());
+
+        // muda status do carro
+        $carro = Carro::find($request->carro_id);
+        $carro->status = 'alugado';
+        $carro->save();
+
+        return redirect()->route('alugueis.index');
     }
 
     /**

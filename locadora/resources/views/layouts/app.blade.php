@@ -2,27 +2,35 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Locadora</title>
+    <title>Locadora de Veículos</title>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
 
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
         <a class="navbar-brand" href="/">Locadora</a>
 
-        <div>
-            <a href="/clientes" class="text-white me-3">Clientes</a>
-            <a href="/carros" class="text-white me-3">Carros</a>
-            <a href="/alugueis" class="text-white">Aluguéis</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/carros">Carros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/clientes">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/alugueis">Aluguéis</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
 
-<div class="container mt-4">
-    @yield('content')
+<div class="container">
+    @yield('conteudo')
 </div>
 
 </body>
